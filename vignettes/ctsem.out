@@ -1,0 +1,33 @@
+\BOOKMARK [1][-]{Section.0.Introduction.1}{Introduction}{}% 1
+\BOOKMARK [1][-]{Section.1.Continuous time models: fundamentals.1}{Continuous time models: fundamentals}{}% 2
+\BOOKMARK [2][-]{Subsection.2.0.Continuous time and SEM.2}{Continuous time and SEM}{Section.1.Continuous time models: fundamentals.1}% 3
+\BOOKMARK [1][-]{Section.2.ctsem package overview and installation.1}{ctsem package overview and installation}{}% 4
+\BOOKMARK [1][-]{Section.3.Data structure.1}{Data structure}{}% 5
+\BOOKMARK [2][-]{Subsection.4.0.Wide format.2}{Wide format}{Section.3.Data structure.1}% 6
+\BOOKMARK [2][-]{Subsection.4.1.Long format with absolute times.2}{Long format with absolute times}{Section.3.Data structure.1}% 7
+\BOOKMARK [2][-]{Subsection.4.2.Converting from long to wide format.2}{Converting from long to wide format}{Section.3.Data structure.1}% 8
+\BOOKMARK [2][-]{Subsection.4.3.Choice of initial time point and time scale.2}{Choice of initial time point and time scale}{Section.3.Data structure.1}% 9
+\BOOKMARK [3][-]{Subsubsection.4.4.0.Choice of initial time point: Pre-determined or stationary?.3}{Choice of initial time point: Pre-determined or stationary?}{Subsection.4.3.Choice of initial time point and time scale.2}% 10
+\BOOKMARK [3][-]{Subsubsection.4.4.1.Choice of time scale: Individual or sample relative time?.3}{Choice of time scale: Individual or sample relative time?}{Subsection.4.3.Choice of initial time point and time scale.2}% 11
+\BOOKMARK [1][-]{Section.4.Model specification.1}{Model specification}{}% 12
+\BOOKMARK [2][-]{Subsubsection.5.0.0.Cholesky decomposed variance / covariance input matrices.3}{Cholesky decomposed variance / covariance input matrices}{Section.4.Model specification.1}% 13
+\BOOKMARK [1][-]{Section.5.Model estimation.1}{Model estimation}{}% 14
+\BOOKMARK [2][-]{Subsection.6.0.Comparing different models.2}{Comparing different models}{Section.5.Model estimation.1}% 15
+\BOOKMARK [2][-]{Subsection.6.1.Plots.2}{Plots}{Section.5.Model estimation.1}% 16
+\BOOKMARK [1][-]{Section.6.Continuous time models: extensions.1}{Continuous time models: extensions}{}% 17
+\BOOKMARK [2][-]{Subsection.7.0.Unobserved heterogeneity.2}{Unobserved heterogeneity}{Section.6.Continuous time models: extensions.1}% 18
+\BOOKMARK [3][-]{Subsubsection.7.1.0.Traits at the latent level.3}{Traits at the latent level}{Subsection.7.0.Unobserved heterogeneity.2}% 19
+\BOOKMARK [3][-]{Subsubsection.7.1.1.Traits at the indicator level.3}{Traits at the indicator level}{Subsection.7.0.Unobserved heterogeneity.2}% 20
+\BOOKMARK [2][-]{Subsection.7.1.Predictors.2}{Predictors}{Section.6.Continuous time models: extensions.1}% 21
+\BOOKMARK [3][-]{Subsubsection.7.2.0.Time independent predictors.3}{Time independent predictors}{Subsection.7.1.Predictors.2}% 22
+\BOOKMARK [3][-]{Subsubsection.7.2.1.Time dependent predictors.3}{Time dependent predictors}{Subsection.7.1.Predictors.2}% 23
+\BOOKMARK [3][-]{Subsubsection.7.2.2.Adding a level change predictor.3}{Adding a level change predictor}{Subsection.7.1.Predictors.2}% 24
+\BOOKMARK [2][-]{Subsection.7.2.N = 1 Time series with multiple indicators.2}{N = 1 Time series with multiple indicators}{Section.6.Continuous time models: extensions.1}% 25
+\BOOKMARK [2][-]{Subsection.7.3.Multiple group continuous time models.2}{Multiple group continuous time models}{Section.6.Continuous time models: extensions.1}% 26
+\BOOKMARK [2][-]{Subsection.7.4.Higher order models and simulating data.2}{Higher order models and simulating data}{Section.6.Continuous time models: extensions.1}% 27
+\BOOKMARK [3][-]{Subsubsection.7.5.0.Damped linear oscillator.3}{Damped linear oscillator}{Subsection.7.4.Higher order models and simulating data.2}% 28
+\BOOKMARK [1][-]{Section.7.Tips.1}{Tips}{}% 29
+\BOOKMARK [2][-]{Subsection.8.0.Optimization performance.2}{Optimization performance}{Section.7.Tips.1}% 30
+\BOOKMARK [1][-]{Section.8.Limitations and future directions.1}{Limitations and future directions}{}% 31
+\BOOKMARK [1][-]{Section.9.Acknowledgements.1}{Acknowledgements}{}% 32
+\BOOKMARK [1][-]{Section..Comparison to discrete time approach.1}{Comparison to discrete time approach}{}% 33

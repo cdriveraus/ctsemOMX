@@ -1,0 +1,39 @@
+Package: ctsemOMX
+Type: Package
+Title: Continuous Time Structural Equation Modelling - OpenMx 
+Version: 1.0.0
+Date: 2020-6-20
+Authors@R: c(person("Charles", "Driver", role =
+    c("aut","cre","cph"),email="driver@mpib-berlin.mpg.de"),
+    person("Manuel", "Voelkle", role = c("aut","cph")),
+    person("Han", "Oud", role = c("aut","cph") ),
+    person("Trustees of Columbia University",role='cph'))
+Description:  Original ctsem (continuous time structural equation modelling)
+    functionality, based on the OpenMx software. These functions were split off from
+    the main library of ctsem, as the main library uses the rstan package as a backend now --
+    though offers estimation options from max likelihood to Bayesian.
+    There are nevertheless use cases for the wide format SEM style approach as offered here, 
+    particularly when there are no individual differences in observation timing and the
+    number of individuals is large. 
+License: GPL-3
+Depends:
+    R (>= 3.5.0), 
+    ctsem (>= 3.3.2),
+    OpenMx (>= 2.9.0)
+URL: https://github.com/cdriveraus/ctsemOMX
+Imports:
+    graphics,
+    grDevices,
+    Matrix,
+    methods,
+    plyr,
+    stats,
+    utils
+Encoding: UTF-8
+LazyData: true
+ByteCompile: true
+Suggests:
+    knitr,
+    testthat
+VignetteBuilder: knitr
+RoxygenNote: 7.1.0
