@@ -1,4 +1,8 @@
 ctsem news:
+17/12/2020
+####1.0.3####
+- Removed Kalman plot functionality -- if needed use ctStanFit functions from ctsem.
+
 20/6/2020
 ####1.0.0####
 - Package creation, split OpenMx functions of ctsem into sub package for maintenance / CRAN check timing reasons.

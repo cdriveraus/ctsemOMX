@@ -43,10 +43,6 @@ AnomAuthmodel <- ctModel(LAMBDA = matrix(c(1, 0, 0, 1), nrow = 2, ncol = 2),
 AnomAuthfit <- ctFit(AnomAuth, AnomAuthmodel)
 
 dwide <- ctGenerateFromFit(AnomAuthfit,timestep=1,n.subjects=5,wide=TRUE)
-
-par(mfrow=c(1,2))
-ctIndplot(datawide = dwide,n.subjects = 5,n.manifest = 2,vars=1,Tpoints = 4)
-ctIndplot(datawide = AnomAuth+rnorm(length(AnomAuth)),vars=1,n.subjects = 5,
-n.manifest = 2,Tpoints = 4)
+head(dwide)
 
 }

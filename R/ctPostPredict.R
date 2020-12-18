@@ -55,7 +55,8 @@ pcheck=aperm(pcheck,c(3,2,1))
 
 if(plot==TRUE){
   
-  paroriginal<-graphics::par()[c('mfrow')]
+  paroriginal<-graphics::par(no.readonly=TRUE)[c('mfrow')]
+  on.exit(expr = {graphics::par(paroriginal) })
   
   if(!is.null(mfrow)){
     if(mfrow=='auto') {
@@ -95,7 +96,6 @@ if(plot==TRUE){
   
 suppressMessages(do.call(ctIndplot,indPlotArgs))
 }
-do.call(graphics::par,paroriginal) #end plotting and reset graphics
 } 
 
 if(plot!=TRUE) return(pcheck)

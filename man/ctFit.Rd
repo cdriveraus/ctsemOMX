@@ -18,7 +18,6 @@ ctFit(
   showInits = FALSE,
   asymptotes = FALSE,
   meanIntervals = FALSE,
-  plotOptimization = FALSE,
   crossEffectNegStarts = TRUE,
   fit = TRUE,
   nofit = FALSE,
@@ -86,9 +85,6 @@ does not necessarily result in a value of 0 for the asymptotic DIFFUSION matrix,
 
 \item{meanIntervals}{Use average time intervals for each column for calculation 
 (both faster and inaccurate to the extent that intervals vary across individuals).}
-
-\item{plotOptimization}{If TRUE, uses checkpointing for OpenMx function \code{mxRun}, set to checkpoint every iteration, 
-output checkpoint file to working directory, then creates a plot for each parameter's values over iterations.}
 
 \item{crossEffectNegStarts}{Logical. If TRUE (default) free DRIFT matrix cross effect parameters have starting values 
 set to small negative values (e.g. -.05), if FALSE, the start values are 0. The TRUE setting is useful for easy 

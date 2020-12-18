@@ -40,8 +40,6 @@
 #' though results in any user specified start values being ignored for the final fit (though they are still used for initial fit).
 #' @param carefulFitWeight Positive numeric. Sets the weight for the penalisation (or prior) applied by the carefulFit algorithm. 
 #' Generally unnecessary to adjust, may be helpful to try a selection of values (perhaps between 0 and 1000) when optimization is problematic.
-#' @param plotOptimization If TRUE, uses checkpointing for OpenMx function \code{mxRun}, set to checkpoint every iteration, 
-#' output checkpoint file to working directory, then creates a plot for each parameter's values over iterations.
 #' @param meanIntervals Use average time intervals for each column for calculation 
 #' (both faster and inaccurate to the extent that intervals vary across individuals).
 #' @param discreteTime Estimate a discrete time model - ignores timing information, parameter
@@ -152,7 +150,7 @@ ctFit  <- function(dat, ctmodelobj, dataform='auto',
   retryattempts=5, iterationSummary=FALSE, carefulFit=TRUE,  
   carefulFitWeight=100,
   showInits=FALSE, asymptotes=FALSE,
-  meanIntervals=FALSE, plotOptimization=FALSE, 
+  meanIntervals=FALSE, 
   crossEffectNegStarts=TRUE,
   fit = TRUE, nofit=FALSE, discreteTime=FALSE, verbose=0, useOptimizer=TRUE,
   omxStartValues=NULL, transformedParams=TRUE,
@@ -204,7 +202,7 @@ ctFit  <- function(dat, ctmodelobj, dataform='auto',
   
   
   if(dataform == 'long'){
-    idcol='id'
+    idcol <- ctmodelobj$id
     obsTpoints=max(unlist(lapply(unique(dat[,idcol]),function(x) 
       length(dat[dat[,idcol]==x, idcol]) )))
     
@@ -2208,11 +2206,11 @@ ctFit  <- function(dat, ctmodelobj, dataform='auto',
   
   
   
-  if(plotOptimization==TRUE){
-    model<- OpenMx::mxOption(model, 'Always Checkpoint', 'Yes')
-    model<- OpenMx::mxOption(model, 'Checkpoint Units', 'iterations')
-    model<- OpenMx::mxOption(model, 'Checkpoint Count', 1)    
-  }
+  # if(plotOptimization==TRUE){
+  #   model<- OpenMx::mxOption(model, 'Always Checkpoint', 'Yes')
+  #   model<- OpenMx::mxOption(model, 'Checkpoint Units', 'iterations')
+  #   model<- OpenMx::mxOption(model, 'Checkpoint Count', 1)    
+  # }
   
   model<-mxOption(model,'RAM Inverse Optimization', 'No')
   model<-mxOption(model, 'Nudge zero starts', FALSE)
@@ -2259,19 +2257,19 @@ ctFit  <- function(dat, ctmodelobj, dataform='auto',
   }
   
   
-  if(plotOptimization==TRUE){
-    
-    checkpoints<-utils::read.table(file='ctsem.omx', header=TRUE, sep='\t')
-    if(carefulFit==TRUE) checkpoints<-rbind(checkpoints, NA, NA, NA, NA, NA, utils::read.table(file='ctsemCarefulfit.omx', header=TRUE, sep='\t'))
-    mfrow<-graphics::par()$mfrow
-    graphics::par(mfrow=c(3, 3))
-    for(i in 6:ncol(checkpoints)) {
-      graphics::plot(checkpoints[, i], main=colnames(checkpoints)[i])
-    }
-    graphics::par(mfrow=mfrow)
-    deleteCheckpoints <- readline('Remove created checkpoint file, ctsem.omx? y/n \n')
-    if(deleteCheckpoints=='y') file.remove(file='ctsem.omx')
-  }
+  # if(plotOptimization==TRUE){
+  #   
+  #   checkpoints<-utils::read.table(file='ctsem.omx', header=TRUE, sep='\t')
+  #   if(carefulFit==TRUE) checkpoints<-rbind(checkpoints, NA, NA, NA, NA, NA, utils::read.table(file='ctsemCarefulfit.omx', header=TRUE, sep='\t'))
+  #   mfrow<-graphics::par()$mfrow
+  #   graphics::par(mfrow=c(3, 3))
+  #   for(i in 6:ncol(checkpoints)) {
+  #     graphics::plot(checkpoints[, i], main=colnames(checkpoints)[i])
+  #   }
+  #   graphics::par(mfrow=mfrow)
+  #   deleteCheckpoints <- readline('Remove created checkpoint file, ctsem.omx? y/n \n')
+  #   if(deleteCheckpoints=='y') file.remove(file='ctsem.omx')
+  # }
   
   OpenMx::mxOption(NULL, "Default optimizer", originaloptimizer) #reset optimizer
   

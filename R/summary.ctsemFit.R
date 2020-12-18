@@ -10,7 +10,6 @@
 #' @export
 summary.ctsemMultigroupFit<-function(object,group='show chooser',...){
   
-  
   if(group=='show chooser')  {
     message(paste0(1:length(object$groups), '  ', object$groups, '\n'))
     
@@ -83,8 +82,7 @@ summary.ctsemMultigroupFit<-function(object,group='show chooser',...){
 #' }
 #' @export
 summary.ctsemFit<-function(object,ridging=FALSE,timeInterval=1,verbose=FALSE,...){
-  
-  
+
   output<-ctSummaryMatrices(object=object,ridging=ridging,timeInterval=timeInterval,verbose=verbose)
   ctParameters<-ctParamsSummary(object=object,ctSummaryMatrices=output)
   output$ctparameters<-ctParameters
@@ -122,6 +120,8 @@ omxSummary<-function(object,verbose=FALSE){
 
 
 ctParamsSummary<-function(object,ctSummaryMatrices,group=NA){
+  
+  # browser()
   if(is.na(group[1])) mxobj <- object$mxobj else mxobj <- object$mxobj[[group]]
   parnames<-names(omxGetParameters(mxobj))
   parvalues<-omxGetParameters(mxobj)
@@ -131,7 +131,7 @@ ctParamsSummary<-function(object,ctSummaryMatrices,group=NA){
   parsd <- parsd[rownames(parsd) %in% parnames,,drop=FALSE]
   parmatrix<-rep(NA,length(parnames))
  
-  # browser()
+  # 
   for(parami in 1:length(parnames)){ #for every free param
     for(matrixi in names(ctSummaryMatrices)[names(ctSummaryMatrices) %in% names(object$ctmodelobj)]){ #check every matrix that is in both ctmodelobj and output
       if(parnames[parami] %in% object$ctmodelobj[[matrixi]]) { #if the free param is in the ctmodelobj matrix
@@ -140,8 +140,11 @@ ctParamsSummary<-function(object,ctSummaryMatrices,group=NA){
         newparvalues[parami]<-ctSummaryMatrices[[matrixi]][match(parnames[parami],object$ctmodelobj[[matrixi]])]
         parsd[parami]<- parsd[parami]
         #delta approx for sd pars
-        if(newparvalues[parami] != parvalues[parami]) parsd[parami]<- 
+        if(newparvalues[parami] != parvalues[parami]) {
+          # print(parami)
+          parsd[parami]<- 
           suppressMessages(mxSE(paste0(ifelse(is.na(group[1]),'',paste0(group,'.')),matrixi,'[',ind[1,1],',',ind[1,2],']'),object$mxobj))
+        }
          # (exp(parvalues[parami] + parsd[parami]) - exp(parvalues[parami] - parsd[parami]))/2
         # parsd[parami]<- abs(((newparvalues[parami]) / parvalues[parami]) * parsd[parami]) #old, bad? first order delta approximation of std error
         parvalues[parami]<- newparvalues[parami]
@@ -255,7 +258,7 @@ ctSummaryMatrices<-function(object,ridging=FALSE,timeInterval=1,verbose=FALSE,..
       outlist<-c(outlist,'asymDIFFUSIONstd')
       
       #std dev of affecting latent divided by std dev of affected latent
-      standardiser<-tryCatch({ suppressWarnings(rep(sqrt(diag(asymDIFFUSION)),each=n.latent) / rep(diag(sqrt(asymDIFFUSION)),times=n.latent))}, error=function(e) e )
+      standardiser<-tryCatch({ suppressWarnings(rep(sqrt(diag(asymDIFFUSION)),each=n.latent) / rep(sqrt(diag(asymDIFFUSION)),times=n.latent))}, error=function(e) e )
       discreteDRIFTstd<-tryCatch({ discreteDRIFT * standardiser    }, error=function(e) e )
       tryCatch({  dimnames(discreteDRIFTstd)<-list(latentNames,latentNames)}, error=function(e) e )
     }
