@@ -3,7 +3,7 @@
 #' A dataset containing panel data assessments of individuals Anomia and Authoritarianism.
 #' @format data frame with 2722 rows, 14 columns. Column Y1 represents anomia, 
 #' Y2 Authoritarianism, dTx the time interval for measurement occasion x.
-#' @source See \url{http://psycnet.apa.org/journals/met/17/2/176/} for details.
+#' @source See \url{https://psycnet.apa.org:443/journals/met/17/2/176/} for details.
 #' @name AnomAuth
 NULL
 
@@ -13,7 +13,7 @@ NULL
 #' Simulated example dataset for the ctsem package.
 #' @format 200 by 21 matrix containing containing ctsem wide format data. 
 #' 11 measurement occasions and 10 measurement intervals for each of 200 individuals
-#' @source See \url{http://onlinelibrary.wiley.com/doi/10.1111/j.2044-8317.2012.02043.x/abstract}
+#' @source See \url{https://bpspsychub.onlinelibrary.wiley.com/doi/abs/10.1111/j.2044-8317.2012.02043.x}
 #' @name Oscillating
 NULL
 
