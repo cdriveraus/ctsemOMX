@@ -1,11 +1,11 @@
 #' Fit a ctsem object
 #' 
-#' This function fits continuous time SEM models specified via \code{\link{ctModel}}
+#' This function fits continuous time SEM models specified via \code{\link[ctsem]{ctModel}}
 #' to a dataset containing one or more subjects.
 #' @param dat the data you wish to fit a ctsem model to, in either wide format (one individual per row), 
 #' or long format (one time point of one individual per row). See details. 
 #' @param dataform either "wide" or "long" depending on which input format you wish to use for the data. See details and or vignette.
-#' @param ctmodelobj the ctsem model object you wish to use, specified via the \code{\link{ctModel}} function.
+#' @param ctmodelobj the ctsem model object you wish to use, specified via the \code{\link[ctsem]{ctModel}} function.
 #' @param fit if FALSE, output only openmx model without fitting
 #' @param nofit Deprecated. If TRUE, output only openmx model without fitting
 #' @param objective 'auto' selects either 'Kalman', if fitting to single subject data, 
@@ -17,7 +17,7 @@
 #' unless there are no individual differences in time interval and no missing data.
 #' 'Kalman' may be specified for multiple subjects, however as no trait matrices are used by the Kalman filter
 #' one must consider how average level differences between subjects are accounted for.
-#' See \code{\link{ctMultigroupFit}} for the possibility to apply the Kalman filter over multiple subjects)
+#' See \code{\link[ctsemOMX]{ctMultigroupFit}} for the possibility to apply the Kalman filter over multiple subjects)
 #' @param stationary Character vector of T0 matrix names in which to constrain any 
 #' free parameters to stationarity. 
 #' Defaults to \code{c('T0TRAITEFFECT','T0TIPREDEFFECT')}, constraining only
@@ -76,13 +76,13 @@
 #' If using long format, the subject id column must be numeric and grouped by ascending time within subject, and named 'id'. 
 #' The time column must also be numeric, and representing absolute time (e.g., since beginning of study, *not* time intervals),
 #' and called 'time'.
-#' Models are specified using the \code{\link{ctModel}} function.
-#' For help regarding the summary function, see \code{\link{summary.ctsemFit}}, 
-#' and for the plot function, \code{\link{plot.ctsemFit}}.
-#' Multigroup models may be specified using \code{\link{ctMultigroupFit}}.
+#' Models are specified using the \code{\link[ctsem]{ctModel}} function.
+#' For help regarding the summary function, see \code{\link[ctsemOMX]{summary.ctsemFit}}, 
+#' and for the plot function, \code{\link[ctsemOMX]{plot.ctsemFit}}.
+#' Multigroup models may be specified using \code{\link[ctsemOMX]{ctMultigroupFit}}.
 #' Confidence intervals for any matrices and or parameters 
-#' may be estimated using \code{\link{ctCI}}.
-#' Difficulties during estimation can sometimes be alleviated using \code{\link{ctRefineTo}} instead of \code{\link{ctFit}} -- 
+#' may be estimated using \code{\link[ctsemOMX]{ctCI}}.
+#' Difficulties during estimation can sometimes be alleviated using \code{\link[ctsemOMX]{ctRefineTo}} instead of \code{\link[ctsemOMX]{ctFit}} -- 
 #' this uses a multistep fit procedure.
 #' @examples 
 #' ## Examples set to 'donttest' because they take longer than 5s.
@@ -160,7 +160,7 @@ ctFit  <- function(dat, ctmodelobj, dataform='auto',
   
   if(!is.null(args$datawide)) {
     warning('ctsem now uses the dat argument instead of the datawide argument, and the form (wide or long) may be specified via the dataform argument.')
-    if(class(try(length(dat),silent = TRUE)) == 'try-error') {
+    if('try-error' %in% class(try(length(dat),silent = TRUE))) {
       message ('dat not specified, using datawide')
       dat <- datawide
     }
@@ -291,7 +291,7 @@ ctFit  <- function(dat, ctmodelobj, dataform='auto',
     ####0 variance predictor fix
     varCheck<-try(any(diag(stats::cov(datawide[, paste0(TDpredNames, '_T', rep(0:(Tpoints-1), each=n.TDpred))],
       use="pairwise.complete.obs"))==0))
-    if(class(varCheck)=='try-error' || any(is.na(varCheck))) {
+    if('try-error' %in% class(varCheck) || any(is.na(varCheck))) {
       warning('unable to compute covariance matrix for time dependent predictors - unstable estimates may result if any variances are 0')
       varCheck<-FALSE
     }
@@ -2235,7 +2235,7 @@ ctFit  <- function(dat, ctmodelobj, dataform='auto',
       message(paste(names(newstarts), ": ", newstarts, "\n"))
     }
     
-    if(class(newstarts)!="try-error" & !is.null(newstarts)) model<-OpenMx::omxSetParameters(model, 
+    if(!"try-error" %in% class(newstarts) & !is.null(newstarts)) model<-OpenMx::omxSetParameters(model, 
       labels=names(newstarts),  values=newstarts,strict=FALSE) #set the params of it
     #     objective<-targetObjective #revert our objective to whatever was specified
     #     setobjective() #and set it

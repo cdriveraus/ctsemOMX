@@ -3,14 +3,14 @@
 #' Fits a single continuous time structural equation models to multiple groups (where each group contains 1 or more subjects),
 #' by default, all parameters are free across groups.  Can also be used to easily estimate seperate models for each group.
 #' 
-#' @param dat Wide format data, as used in \code{\link{ctFit}}.  See \code{\link{ctLongToWide}} to
+#' @param dat Wide format data, as used in \code{\link[ctsemOMX]{ctFit}}.  See \code{\link[ctsem]{ctLongToWide}} to
 #' easily convert long format data.
 #' @param groupings For wide format: Vector of character labels designating group membership for each row of dat.  
 #' For long format: Named list of groups, with each list element containing a vector of subject id's for the group.
 #' In both cases, group names will be prefixed on relevant parameter estimates in the summary.
-#' @param ctmodelobj Continuous time model to fit, specified via \code{\link{ctModel}} function.
+#' @param ctmodelobj Continuous time model to fit, specified via \code{\link[ctsem]{ctModel}} function.
 #' @param dataform either "wide" or "long" depending on which input format you wish to use for the data. 
-#' See details of \code{\link{ctFit}} and or vignette.
+#' See details of \code{\link[ctsemOMX]{ctFit}} and or vignette.
 #' @param fixedmodel Modified version of ctmodelobj, wherein any parameters you wish to keep 
 #' fixed over groups should be given the value 'groupfixed'.  
 #' If specified, all other parameters will be free across groups.
@@ -27,10 +27,10 @@
 #' fits the specified model normally, using these estimates as starting values. 
 #' Can help / speed optimization, though results in user specified inits being ignored for the final fit.
 #' @param retryattempts Number of fit retries to make.
-#' @param ... additional arguments to pass to \code{\link{ctFit}}.
+#' @param ... additional arguments to pass to \code{\link[ctsemOMX]{ctFit}}.
 #' @return Returns an OpenMx fit object.
-#' @details Additional \code{\link{ctFit}} parameters may be specified as required. Confidence intervals for any matrices and or parameters 
-#' may be estimated afer fitting using \code{\link{ctCI}}.
+#' @details Additional \code{\link[ctsemOMX]{ctFit}} parameters may be specified as required. Confidence intervals for any matrices and or parameters 
+#' may be estimated afer fitting using \code{\link[ctsemOMX]{ctCI}}.
 #' 
 #' @examples 
 #' \donttest{
@@ -63,7 +63,7 @@
 #'}
 #' 
 #' 
-#' @seealso \code{\link{ctFit}} and \code{\link{ctModel}}
+#' @seealso \code{\link[ctsemOMX]{ctFit}} and \code{\link[ctsem]{ctModel}}
 #' @export
 
 

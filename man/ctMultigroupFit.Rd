@@ -19,17 +19,17 @@ ctMultigroupFit(
 )
 }
 \arguments{
-\item{dat}{Wide format data, as used in \code{\link{ctFit}}.  See \code{\link{ctLongToWide}} to
+\item{dat}{Wide format data, as used in \code{\link[ctsemOMX]{ctFit}}.  See \code{\link[ctsem]{ctLongToWide}} to
 easily convert long format data.}
 
 \item{groupings}{For wide format: Vector of character labels designating group membership for each row of dat.
 For long format: Named list of groups, with each list element containing a vector of subject id's for the group.
 In both cases, group names will be prefixed on relevant parameter estimates in the summary.}
 
-\item{ctmodelobj}{Continuous time model to fit, specified via \code{\link{ctModel}} function.}
+\item{ctmodelobj}{Continuous time model to fit, specified via \code{\link[ctsem]{ctModel}} function.}
 
 \item{dataform}{either "wide" or "long" depending on which input format you wish to use for the data. 
-See details of \code{\link{ctFit}} and or vignette.}
+See details of \code{\link[ctsemOMX]{ctFit}} and or vignette.}
 
 \item{fixedmodel}{Modified version of ctmodelobj, wherein any parameters you wish to keep 
 fixed over groups should be given the value 'groupfixed'.  
@@ -53,7 +53,7 @@ over any starting values already specified using ctModel.}
 
 \item{showInits}{Displays start values prior to optimization}
 
-\item{...}{additional arguments to pass to \code{\link{ctFit}}.}
+\item{...}{additional arguments to pass to \code{\link[ctsemOMX]{ctFit}}.}
 }
 \value{
 Returns an OpenMx fit object.
@@ -63,8 +63,8 @@ Fits a single continuous time structural equation models to multiple groups (whe
 by default, all parameters are free across groups.  Can also be used to easily estimate seperate models for each group.
 }
 \details{
-Additional \code{\link{ctFit}} parameters may be specified as required. Confidence intervals for any matrices and or parameters 
-may be estimated afer fitting using \code{\link{ctCI}}.
+Additional \code{\link[ctsemOMX]{ctFit}} parameters may be specified as required. Confidence intervals for any matrices and or parameters 
+may be estimated afer fitting using \code{\link[ctsemOMX]{ctCI}}.
 }
 \examples{
 \donttest{
@@ -99,5 +99,5 @@ summary(multif,group=2)
 
 }
 \seealso{
-\code{\link{ctFit}} and \code{\link{ctModel}}
+\code{\link[ctsemOMX]{ctFit}} and \code{\link[ctsem]{ctModel}}
 }

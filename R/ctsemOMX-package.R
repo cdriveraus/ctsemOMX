@@ -26,7 +26,7 @@ utils::globalVariables(c("invDRIFT","II","DRIFTexp","vec2diag","diag2vec",
   'plot', 'points','T0TRAITEFFECT',
   'T0VARsubindex','DRIFTsubindex','DIFFUSIONsubindex','CINTsubindex','.'))
 
-if(1==99){
+if(F){
   `:=` = NULL
 `.` =NULL
 .N = .id = id= . = grp = NULL # due to NSE notes in R CMD check
@@ -40,11 +40,11 @@ if(1==99){
 #' ground forms like maximum a posteriori. This ctsemOMX addition includes the original OpenMx based functions
 #' which have been split off from the main package.
 #' 
-#' The general workflow begins by specifying a model using the \code{\link{ctModel}} function, 
+#' The general workflow begins by specifying a model using the \code{\link[ctsem]{ctModel}} function, 
 #' in which the \code{type} of model is also specified. Then the model is fit to data using 
-#' either \code{\link{ctFit}} if the original 'omx' (OpenMx, SEM, max likelihood) model is specified.
+#' \code{\link[ctsemOMX]{ctFit}} if the original 'omx' (OpenMx, SEM, max likelihood) model is specified.
 #' The omx forms are no longer in 
-#' development and for most purposes, the newer stan based forms (contained in the base ctsem package)
+#' development and for most purposes, the newer forms (contained in the base ctsem package)
 #' are more robust and flexible.
 #' For citation info, please run \code{citation('ctsem')} .
 #'  
@@ -61,5 +61,10 @@ if(1==99){
 #' Driver, C. C., & Voelkle, M. C. (2018). Hierarchical Bayesian continuous time dynamic modeling. 
 #' Psychological Methods. Advance online publication.http://dx.doi.org/10.1037/met0000168
 #' 
+#' @keywords internal
+"_PACKAGE"
+
+## usethis namespace: start
+## usethis namespace: end
 NULL
 

@@ -31,12 +31,12 @@ Summary of ctsemFit object
 Provides summary details for ctsemFit objects.
 }
 \details{
-Important: Although \code{\link{ctModel}} takes cholesky decomposed variance-covariance matrices as input,
+Important: Although \code{\link[ctsem]{ctModel}} takes cholesky decomposed variance-covariance matrices as input,
 the summary function displays the full variance-covariance matrices. These can be cholesky decomposed for comparison purposes using
 \code{t(chol(summary(ctfitobject)$covariancematrix))}.
-Standard errors are displayed in the $ctparameters section, however if \code{\link{ctFit}} was used with transformedParams=TRUE (the default, and recommended) 
+Standard errors are displayed in the $ctparameters section, however if \code{\link[ctsemOMX]{ctFit}} was used with transformedParams=TRUE (the default, and recommended) 
 covariance matrix standard errors will have been approximated using the delta method. For 
-inferential purposes, maximum likelihood confidence intervals may be estimated using the \code{\link{ctCI}} function.
+inferential purposes, maximum likelihood confidence intervals may be estimated using the \code{\link[ctsemOMX]{ctCI}} function.
 }
 \examples{
 ## Examples set to 'donttest' because they take longer than 5s. 

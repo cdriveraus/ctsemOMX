@@ -33,7 +33,7 @@ ctFit(
 \item{dat}{the data you wish to fit a ctsem model to, in either wide format (one individual per row), 
 or long format (one time point of one individual per row). See details.}
 
-\item{ctmodelobj}{the ctsem model object you wish to use, specified via the \code{\link{ctModel}} function.}
+\item{ctmodelobj}{the ctsem model object you wish to use, specified via the \code{\link[ctsem]{ctModel}} function.}
 
 \item{dataform}{either "wide" or "long" depending on which input format you wish to use for the data. See details and or vignette.}
 
@@ -46,7 +46,7 @@ of the supplied data is calculated and fit instead of the raw data. This is much
 unless there are no individual differences in time interval and no missing data.
 'Kalman' may be specified for multiple subjects, however as no trait matrices are used by the Kalman filter
 one must consider how average level differences between subjects are accounted for.
-See \code{\link{ctMultigroupFit}} for the possibility to apply the Kalman filter over multiple subjects)}
+See \code{\link[ctsemOMX]{ctMultigroupFit}} for the possibility to apply the Kalman filter over multiple subjects)}
 
 \item{stationary}{Character vector of T0 matrix names in which to constrain any 
 free parameters to stationarity. 
@@ -122,7 +122,7 @@ Do not use this argument, instead use the dat argument, and the dataform argumen
 data is in wide or long format.}
 }
 \description{
-This function fits continuous time SEM models specified via \code{\link{ctModel}}
+This function fits continuous time SEM models specified via \code{\link[ctsem]{ctModel}}
 to a dataset containing one or more subjects.
 }
 \details{
@@ -131,13 +131,13 @@ the data examples \code{data("longexample") ; longexample} for long and \code{da
 If using long format, the subject id column must be numeric and grouped by ascending time within subject, and named 'id'. 
 The time column must also be numeric, and representing absolute time (e.g., since beginning of study, *not* time intervals),
 and called 'time'.
-Models are specified using the \code{\link{ctModel}} function.
-For help regarding the summary function, see \code{\link{summary.ctsemFit}}, 
-and for the plot function, \code{\link{plot.ctsemFit}}.
-Multigroup models may be specified using \code{\link{ctMultigroupFit}}.
+Models are specified using the \code{\link[ctsem]{ctModel}} function.
+For help regarding the summary function, see \code{\link[ctsemOMX]{summary.ctsemFit}}, 
+and for the plot function, \code{\link[ctsemOMX]{plot.ctsemFit}}.
+Multigroup models may be specified using \code{\link[ctsemOMX]{ctMultigroupFit}}.
 Confidence intervals for any matrices and or parameters 
-may be estimated using \code{\link{ctCI}}.
-Difficulties during estimation can sometimes be alleviated using \code{\link{ctRefineTo}} instead of \code{\link{ctFit}} -- 
+may be estimated using \code{\link[ctsemOMX]{ctCI}}.
+Difficulties during estimation can sometimes be alleviated using \code{\link[ctsemOMX]{ctRefineTo}} instead of \code{\link[ctsemOMX]{ctFit}} -- 
 this uses a multistep fit procedure.
 }
 \examples{

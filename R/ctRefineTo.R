@@ -6,10 +6,10 @@
 #' starting with a m involving fixed and relatively strong auto effects, no cross effects, no predictors, and no off-diagonal covariances.
 #' For many models this can improve the speed and robustness of fitting
 #' @param datawide Data in ctsem wide format
-#' @param ctmodelobj A continuous time m specified via the \code{\link{ctModel}} function.
-#' @param ... additional parameters to pass to \code{\link{ctFit}}.
+#' @param ctmodelobj A continuous time m specified via the \code{\link[ctsem]{ctModel}} function.
+#' @param ... additional parameters to pass to \code{\link[ctsemOMX]{ctFit}}.
 #' @param modfunc function to run prior to each optimization step, that takes ctsem fit object, modifies it as desired, and returns the fit object.
-#' @return Returns a fitted ctsem object in the same manner as \code{\link{ctFit}}.
+#' @return Returns a fitted ctsem object in the same manner as \code{\link[ctsemOMX]{ctFit}}.
 #' @export
 
  

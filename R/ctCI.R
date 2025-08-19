@@ -28,9 +28,9 @@
 #' @export
 ctCI<-function(ctfitobj, confidenceintervals, optimizer='NPSOL', verbose=0){
   
-  if(class(ctfitobj)!= 'ctsemFit' & class(ctfitobj)!= 'ctsemMultigroupFit') stop('Not a ctsem fit object!')
+  if(!'ctsemFit' %in% class(ctfitobj) & !'ctsemMultigroupFit' %in% class(ctfitobj)) stop('Not a ctsem fit object!')
   
-  if(class(ctfitobj)=='ctsemMultigroupFit') confidenceintervals<-unlist(lapply(confidenceintervals,function(x){
+  if('ctsemMultigroupFit' %in% class(ctfitobj)) confidenceintervals<-unlist(lapply(confidenceintervals,function(x){
     paste0(rep(names(ctfitobj$mxobj$submodels),each=length(confidenceintervals)),'.', confidenceintervals)
   }))
   

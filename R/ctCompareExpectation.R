@@ -11,13 +11,13 @@
 ctCompareExpected<-function(fitobj,cov=TRUE,
   outputmatrices=FALSE,pause=TRUE,varlist="all",ylim=c(-1,1),...){ 
 
-  if(class(fitobj)=="ctsemFit"){ 
+  if("ctsemFit" %in% class(fitobj)){ 
     n.manifest<-fitobj$ctmodelobj$n.manifest
     Tpoints<-fitobj$ctmodelobj$Tpoints
     mxobj<-fitobj$mxobj    
   }
   
-  if(class(fitobj)=="MxModel" &
+  if("MxModel" %in% class(fitobj) &
       any( c(!exists('n.manifest'), !exists('Tpoints')))) message(
         'OpenMx object specified - additional arguments required: n.manifest, Tpoints') 
   

@@ -26,7 +26,7 @@
 ctGenerateFromFit<-function(fit,timestep='asdata',n.subjects=100,timerange='asdata',
   predictorSubjects='all',...){
 
-if(class(fit)!='ctsemFit') stop('not a ctsemFit object')
+if(!'ctsemFit' %in% class(fit)) stop('not a ctsemFit object')
 gm=ctModelFromFit(fit)
 
 if(!is.null(fit$mxobj$expectation$P0)) { #if fit with kalman filter then data needs rearranging
